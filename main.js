@@ -26,11 +26,27 @@ fetch('http://localhost:3000/questions')
         })
     })
 
+fetch('http://localhost:3000/players')
+    .then(res => res.json())
+    .then(data => {
+        const players = document.querySelector('#players');
+        players.innerHTML = '';
+        data.forEach(el => {
+            players.appendChild(htmlToElement(`
+                <div class="${el.retired ? 'text-gray-300' : 'text-black'}">
+                    ${el.name}
+                </div>
+            `))
+        })
+    })
+
 fetch('http://localhost:3000/current-player')
     .then(res => res.json())
     .then(data => {
         const currentPlayer = document.querySelector('#current-player');
-        currentPlayer.innerHTML = data.name;
+        currentPlayer.appendChild(htmlToElement(`
+            <span>Current Player is: ${data.name}</span>
+        `));
     })
 
 /**

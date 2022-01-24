@@ -35,7 +35,27 @@
             "selected": false
         }
     ],
-    "players": [],
+    "players": [
+        {
+            "name": "sasaki",
+            "retired": false
+        },
+        {
+            "name": "sawada",
+            "retired": false
+        },
+        {
+            "name": "sakai",
+            "retired": true
+        },
+        {
+            "name": "saeki",
+            "retired": false
+        }
+    ],
+    "me": {
+        "name": "sasaki"
+    },
     "current-player": {
         "name": "sasaki"
     }
