@@ -4,12 +4,11 @@ fetch('http://localhost:3000/cards')
         const cards = document.querySelector('#cards');
         cards.innerHTML = '';
         data.forEach(el => {
-            const card = document.createElement('div');
-            const card_content = document.createTextNode(el.number);
-            card.appendChild(card_content);
-            card.className = 'cursor-pointer'
-
-            cards.appendChild(card);
+            cards.appendChild(htmlToElement(`
+                <div class="p-4 text-${el.color}-400 cursor-pointer">
+                    ${el.number}
+                </div>
+            `));
         });
     });
 
@@ -19,14 +18,8 @@ fetch('http://localhost:3000/questions')
         const questions = document.querySelector('#questions');
         questions.innerHTML = '';
         data.forEach(el => {
-            const question = document.createElement('div');
-            question.innerHTML = ''
-            const question_content = document.createTextNode(el.text);
-            question.appendChild(question_content);
-            question.className = el.selected ? 'text-blue-400' : 'text-black';
-
             questions.appendChild(htmlToElement(`
-                <div class="${el.selected ? 'text-blue-400' : 'text-black'}">
+                <div class="${el.selected ? 'text-blue-400' : 'text-black'} cursor-pointer">
                     ${el.text}
                 </div>
             `));
