@@ -1,7 +1,6 @@
 fetch('http://localhost:3000/cards')
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         const cards = document.querySelector('#cards');
         cards.innerHTML = '';
         data.forEach(el => {
@@ -12,3 +11,18 @@ fetch('http://localhost:3000/cards')
             cards.appendChild(card);
         });
     });
+
+fetch('http://localhost:3000/questions')
+    .then(res => res.json())
+    .then(data => {
+        const questions = document.querySelector('#questions');
+        questions.innerHTML = '';
+        data.forEach(el => {
+            const question = document.createElement('div');
+            const question_content = document.createTextNode(el.text);
+            question.appendChild(question_content);
+            question.className = el.selected ? 'text-blue-500' : 'text-black';
+
+            questions.appendChild(question);
+        })
+    })
