@@ -1,0 +1,20 @@
+{
+    "cards": [
+        {
+            "color": "red",
+            "number": 1
+        },
+        {
+            "color": "red",
+            "number": 2
+        },
+        {
+            "color": "red",
+            "number": 3
+        },
+        {
+            "color": "red",
+            "number": 4
+        }
+    ]
+}
