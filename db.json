@@ -58,5 +58,23 @@
     },
     "current-player": {
         "name": "sasaki"
+    },
+    "rooms": [
+        {
+            "id": 1
+        }
+    ],
+    "members": [
+        {
+            "name": "sakai",
+            "roomId": 1
+        },
+        {
+            "name": "sawada",
+            "roomId": 1
+        }
+    ],
+    "is-valid-token": {
+        "value": false
     }
 }

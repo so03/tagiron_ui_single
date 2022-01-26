@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='ja'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta
+        name='viewport'
+        content='width=device-width, initial-scale=1.0'
+    >
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="room.js"></script>
+    <style>
+        body {
+            font-family: fantasy;
+        }
+    </style>
+    <title>Tagiron single (Room)</title>
+</head>
+
+<body>
+    <p class="font-semibold">Current members</p>
+    <div id="members"></div>
+    <div class="m-4"></div>
+    <div id="join-div">
+        <form id="join-form">
+            <input class="border-2">
+            <button type="submit">Join!</button>
+        </form>
+    </div>
+</body>
+
+</html>
