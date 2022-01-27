@@ -3,12 +3,20 @@ const app = express();
 const api = express.Router();
 api.use(express.json());
 
+let members = [
+    {
+        name: "sasaki"
+    }
+];
+
 api.get('/rooms/1/members', (req, res) => {
-    res.json([
-        {
-            name: "sasaki"
-        }
-    ])
+    res.json(members)
+})
+
+api.post('/rooms/1/members', (req, res) => {
+    // TODO: validate
+    members.push(req.body);
+    res.status(204).send();
 })
 
 api.get('/cards', (req, res) => {
