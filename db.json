@@ -18,22 +18,6 @@
     }
   ],
   "questions": [
-    {
-      "text": "1はどこ?",
-      "selected": true
-    },
-    {
-      "text": "2はどこ?",
-      "selected": false
-    },
-    {
-      "text": "3はどこ?",
-      "selected": false
-    },
-    {
-      "text": "4はどこ?",
-      "selected": false
-    }
   ],
   "players": [
     {

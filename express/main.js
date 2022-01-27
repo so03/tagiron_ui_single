@@ -11,7 +11,7 @@ api.get('/rooms/1/members', (req, res) => {
     ])
 })
 
-app.get('/api/cards', (req, res) => {
+api.get('/cards', (req, res) => {
     res.json([
         {
             color: "red",
@@ -28,6 +28,27 @@ app.get('/api/cards', (req, res) => {
         {
             color: "red",
             number: 8,
+        }
+    ])
+})
+
+api.get('/questions', (req, res) => {
+    res.json([
+        {
+            "text": "1はどこ?",
+            "selected": true
+        },
+        {
+            "text": "2はどこ?",
+            "selected": false
+        },
+        {
+            "text": "3はどこ?",
+            "selected": false
+        },
+        {
+            "text": "4はどこ?",
+            "selected": false
         }
     ])
 })

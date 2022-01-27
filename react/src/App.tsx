@@ -5,13 +5,70 @@ const axios = axiosBase.create({
   baseURL: "http://localhost:3000/api",
 });
 
-function App() {
+export default function App() {
   return (
     <>
-      <Card.Cards />
+      <Game />
+      <Room />
+    </>
+  );
+}
+
+function Room() {
+  return (
+    <>
       <Members />
     </>
   );
+}
+
+function Game() {
+  return (
+    <>
+      <Question.Questions />
+      <Card.Cards />
+    </>
+  );
+}
+
+namespace Question {
+  type Question = {
+    text: string;
+    selected: boolean;
+  };
+  export function Questions() {
+    const [questions, setQuestions] = useState<null | Question[]>(null);
+    useEffect(() => {
+      axios.get("/questions").then((res) => setQuestions(res.data));
+    }, []);
+
+    if (!questions) {
+      return null;
+    }
+    return (
+      <>
+        {questions.map((question, i) => (
+          <Question key={i} question={question} />
+        ))}
+      </>
+    );
+  }
+
+  type QuestionProps = {
+    question: Question;
+  };
+  function Question({ question }: QuestionProps) {
+    return (
+      <div
+        className={`
+          ${question.selected ? "text-blue-400" : "text-black"}
+          cursor-pointer
+        `}
+      >
+        {question.text}
+      </div>
+    );
+  }
 }
 
 function Members() {
@@ -83,5 +140,3 @@ namespace Card {
     return color;
   }
 }
-
-export default App;
