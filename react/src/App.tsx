@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axiosBase from "axios";
+import { Routes, Route, Link } from "react-router-dom";
 
 const axios = axiosBase.create({
   baseURL: "http://localhost:3000/api",
@@ -7,9 +8,19 @@ const axios = axiosBase.create({
 
 export default function App() {
   return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="game" element={<Game />} />
+      <Route path="room" element={<Room />} />
+    </Routes>
+  );
+}
+
+function Home() {
+  return (
     <>
-      <Game />
-      <Room />
+      <h1>Tagiron</h1>
+      <Link to="/game">Game</Link> | <Link to="/room">Room</Link>
     </>
   );
 }
