@@ -4,7 +4,7 @@
 		{
 			"type": "npm",
 			"script": "dev",
-			"path": "react/",
+			"path": "origin/",
 			"problemMatcher": [],
 			"label": "npm: dev - react",
 			"detail": "vite"
@@ -12,7 +12,7 @@
 		{
 			"type": "npm",
 			"script": "serve",
-			"path": "express/",
+			"path": "server/",
 			"problemMatcher": [],
 			"label": "npm: serve - express",
 		}
