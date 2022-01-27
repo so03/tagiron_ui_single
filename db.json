@@ -1,80 +1,80 @@
 {
-    "cards": [
-        {
-            "color": "red",
-            "number": 1
-        },
-        {
-            "color": "red",
-            "number": 2
-        },
-        {
-            "color": "blue",
-            "number": 4
-        },
-        {
-            "color": "yellow",
-            "number": 5
-        }
-    ],
-    "questions": [
-        {
-            "text": "1はどこ?",
-            "selected": true
-        },
-        {
-            "text": "2はどこ?",
-            "selected": false
-        },
-        {
-            "text": "3はどこ?",
-            "selected": false
-        },
-        {
-            "text": "4はどこ?",
-            "selected": false
-        }
-    ],
-    "players": [
-        {
-            "name": "sasaki",
-            "retired": false
-        },
-        {
-            "name": "sawada",
-            "retired": false
-        },
-        {
-            "name": "sakai",
-            "retired": true
-        },
-        {
-            "name": "saeki",
-            "retired": false
-        }
-    ],
-    "me": {
-        "name": "sasaki"
+  "cards": [
+    {
+      "color": "red",
+      "number": 1
     },
-    "current-player": {
-        "name": "sasaki"
+    {
+      "color": "red",
+      "number": 2
     },
-    "rooms": [
-        {
-            "id": 1
-        }
-    ],
-    "members": [
-        {
-            "name": "sakai",
-            "roomId": 1
-        },
-        {
-            "name": "sawada",
-            "roomId": 1
-        }
-    ],
-    "is-valid-token": {
-        "value": false
+    {
+      "color": "blue",
+      "number": 4
+    },
+    {
+      "color": "yellow",
+      "number": 5
     }
+  ],
+  "questions": [
+    {
+      "text": "1はどこ?",
+      "selected": true
+    },
+    {
+      "text": "2はどこ?",
+      "selected": false
+    },
+    {
+      "text": "3はどこ?",
+      "selected": false
+    },
+    {
+      "text": "4はどこ?",
+      "selected": false
+    }
+  ],
+  "players": [
+    {
+      "name": "sasaki",
+      "retired": false
+    },
+    {
+      "name": "sawada",
+      "retired": false
+    },
+    {
+      "name": "sakai",
+      "retired": true
+    },
+    {
+      "name": "saeki",
+      "retired": false
+    }
+  ],
+  "me": {
+    "name": "sasaki"
+  },
+  "current-player": {
+    "name": "sasaki"
+  },
+  "rooms": [
+    {
+      "id": 1
+    }
+  ],
+  "members": [
+    {
+      "name": "sakai",
+      "roomId": 1
+    },
+    {
+      "name": "sawada",
+      "roomId": 1
+    }
+  ],
+  "is-valid-token": {
+    "value": false
+  }
 }
