@@ -1,14 +1,36 @@
-import { useState } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="font-extralight text-blue-500">
+    <>
+      <Members />
       hello
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+function Members() {
+  type Member = {
+    name: string;
+  };
+  const [members, setMembers] = useState<null | Member[]>(null);
+  useEffect(() => {
+    axios.get("/api/rooms/1/members").then((res) => {
+      setMembers(res.data);
+    });
+  }, []);
+
+  if (!members) {
+    return null;
+  }
+  return (
+    <>
+      {members.map((member) => (
+        <p>{member.name}</p>
+      ))}
+    </>
+  );
+}
+
+export default App;
