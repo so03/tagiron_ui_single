@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axiosBase from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 
@@ -29,6 +29,7 @@ function Room() {
   return (
     <>
       <Members />
+      <RoomForm />
     </>
   );
 }
@@ -38,6 +39,58 @@ function Game() {
     <>
       <Question.Questions />
       <Card.Cards />
+    </>
+  );
+}
+
+function Members() {
+  type Member = {
+    name: string;
+  };
+  const [members, setMembers] = useState<null | Member[]>(null);
+  useEffect(() => {
+    axios.get("/rooms/1/members").then((res) => {
+      setMembers(res.data);
+    });
+  }, []);
+
+  if (!members) {
+    return null;
+  }
+  return (
+    <>
+      {members.map((member, i) => (
+        <p key={i}>{member.name}</p>
+      ))}
+    </>
+  );
+}
+
+function RoomForm() {
+  const [name, setName] = helpers.useInput("");
+  function handleSubmit(e: React.SyntheticEvent) {
+    e.preventDefault();
+    axios
+      .post("/rooms/1/members", { name })
+      .then((res) => {
+        // TODO: notice
+      })
+      .catch((err) => {
+        alert(JSON.stringify(err));
+      });
+  }
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={name}
+          onInput={setName}
+          type="text"
+          className="border-2 p-2"
+          placeholder="Enter your name"
+        />
+        <button type="submit">Join!</button>
+      </form>
     </>
   );
 }
@@ -80,29 +133,6 @@ namespace Question {
       </div>
     );
   }
-}
-
-function Members() {
-  type Member = {
-    name: string;
-  };
-  const [members, setMembers] = useState<null | Member[]>(null);
-  useEffect(() => {
-    axios.get("/rooms/1/members").then((res) => {
-      setMembers(res.data);
-    });
-  }, []);
-
-  if (!members) {
-    return null;
-  }
-  return (
-    <>
-      {members.map((member, i) => (
-        <p key={i}>{member.name}</p>
-      ))}
-    </>
-  );
 }
 
 namespace Card {
@@ -149,5 +179,18 @@ namespace Card {
       color = "text-yellow-400";
     }
     return color;
+  }
+}
+
+namespace helpers {
+  export function useInput(
+    initialValue: string
+  ): [string, (e: React.FormEvent<HTMLInputElement>) => void] {
+    const [value, setValue] = useState<string>(initialValue);
+    const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+      setValue(e.currentTarget.value);
+    };
+
+    return [value, handleInput];
   }
 }
