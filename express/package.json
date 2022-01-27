@@ -3,7 +3,7 @@
     "serve": "nodemon main.js"
   },
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^5.0.0-alpha.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
